@@ -10,9 +10,9 @@ match priority:
     case "medium":
         start = "Attention: "
 
-if time_bound == "no":
-    end = ". Consider completing it when you have free time."
-else:
+if time_bound == "yes":
     end = " that requires immediate attention today!"
+else:
+    end = ". Consider completing it when you have free time."
 
 print(f"{start}'{task}' is a {priority} priority task{end}")
