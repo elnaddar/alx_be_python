@@ -1,33 +1,37 @@
 # Generated using AI as their task was created
 # using AI and have no details on the review criteria
 
-# Prompt for a Single Task
+# Prompt for a single task
 task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ").lower()
 time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# Initialize the reminder message
-reminder_message = f"'{task}' is a {priority} priority task"
+# Start building the reminder message
+reminder = f"'{task}' is a {priority} priority task"
 
-# Process the Task Based on Priority and Time Sensitivity
+# Use Match Case to determine the base message
 match priority:
     case 'high':
+        # High priority tasks
         if time_bound == 'yes':
-            reminder_message += " that requires immediate attention today!"
+            reminder += " that requires immediate attention today!"
         else:
-            reminder_message += ". Consider completing it soon."
+            reminder += " that should be completed soon."
     case 'medium':
+        # Medium priority tasks
         if time_bound == 'yes':
-            reminder_message += " that needs to be done today."
+            reminder += " that needs to be done today."
         else:
-            reminder_message += ". It's a good candidate for today's to-do list."
+            reminder += "."
     case 'low':
+        # Low priority tasks
         if time_bound == 'yes':
-            reminder_message += ". You should try to get this done today if you can."
+            reminder += " that you should try to do today if you can."
         else:
-            reminder_message += ". Consider completing it when you have free time."
+            reminder += ". Consider completing it when you have free time."
     case _:
-        reminder_message = "I didn't recognize that priority level. Please try again with 'high', 'medium', or 'low'."
+        # Handles unexpected input
+        reminder = "I couldn't create a reminder for that priority level. Please try again with 'high', 'medium', or 'low'."
 
-# Provide the Customized Reminder
-print("\nReminder:", reminder_message)
+# Provide a customized reminder using a single print statement
+print(f"Reminder: {reminder}")
