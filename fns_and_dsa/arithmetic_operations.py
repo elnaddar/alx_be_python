@@ -1,4 +1,4 @@
-def perform_operation(num1:float, num2:float, operation:str):
+def perform_operation(num1, num2, operation):
     result = 0
     # add, subtract, multiply, divide
     match operation:
